@@ -14,6 +14,10 @@ class GithubService
     protected $token;
     protected $guzzle;
 
+    protected $github_api_url = 'https://api.github.com';
+
+    protected $uri = '/user/repos';
+
     /**
      * GithubService constructor.
      *
@@ -33,12 +37,30 @@ class GithubService
 //        dd(env('GITHUB_TOKEN'));
 //        $token = env('GITHUB_TOKEN');
 
-       $res = $this->guzzle->request('GET','http://www.google.es');
-        dd($res->getBody());
+       $res = $this->guzzle->request('GET',$this->githubReposUrl(),
+           [
+                "auth" => $this->credentials(),
+           ]
+       );
+
+        dd(\GuzzleHttp\json_decode($res->getBody()));
        return [
             'Repo1',
             'Repo2',
             'Repo3',
+        ];
+    }
+
+    private function githubReposUrl()
+    {
+        return $this->github_api_url . $this->uri;
+    }
+
+    private function credentials()
+    {
+        return [
+            'davidmgilo',
+            $this->token
         ];
     }
 }
