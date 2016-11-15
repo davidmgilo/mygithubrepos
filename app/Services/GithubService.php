@@ -2,12 +2,9 @@
 
 namespace App\Services;
 
-/**
- * Created by PhpStorm.
- * User: alumne
- * Date: 15/11/16
- * Time: 19:52
- */
+
+use GuzzleHttp\Client;
+
 /**
  * Class GithubService
  * @package App\Services
@@ -15,14 +12,16 @@ namespace App\Services;
 class GithubService
 {
     protected $token;
+    protected $guzzle;
 
     /**
      * GithubService constructor.
      *
      */
-    public function __construct()
+    public function __construct(Client $guzzle)
     {
         $this->token = env('GITHUB_TOKEN');
+        $this->guzzle = $guzzle;
     }
 
 
@@ -34,8 +33,8 @@ class GithubService
 //        dd(env('GITHUB_TOKEN'));
 //        $token = env('GITHUB_TOKEN');
 
-
-
+       $res = $this->guzzle->request('GET','http://www.google.es');
+        dd($res->getBody());
        return [
             'Repo1',
             'Repo2',
