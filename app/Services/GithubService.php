@@ -43,12 +43,14 @@ class GithubService
            ]
        );
 
-        dd(\GuzzleHttp\json_decode($res->getBody()));
-       return [
-            'Repo1',
-            'Repo2',
-            'Repo3',
-        ];
+
+        return collect(\GuzzleHttp\json_decode($res->getBody()))->pluck('name');
+
+//       return [
+//            'Repo1',
+//            'Repo2',
+//            'Repo3',
+//        ];
     }
 
     private function githubReposUrl()
