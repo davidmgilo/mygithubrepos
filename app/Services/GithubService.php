@@ -14,6 +14,17 @@ namespace App\Services;
  */
 class GithubService
 {
+    protected $token;
+
+    /**
+     * GithubService constructor.
+     *
+     */
+    public function __construct()
+    {
+        $this->token = env('GITHUB_TOKEN');
+    }
+
 
     /**
      *
@@ -21,7 +32,7 @@ class GithubService
     public function obtainRepos()
     {
 //        dd(env('GITHUB_TOKEN'));
-        $token = env('GITHUB_TOKEN');
+//        $token = env('GITHUB_TOKEN');
        return [
             'Repo1',
             'Repo2',
