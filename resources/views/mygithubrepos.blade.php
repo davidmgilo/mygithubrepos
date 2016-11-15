@@ -13,7 +13,11 @@
                     <div class="panel-heading">My Repos</div>
 
                     <div class="panel-body">
-                        {{ var_dump($githubrepos) }}
+                        <ul>
+                        @foreach ($githubrepos as $repo)
+                            <li>{{ $repo }}</li>
+                        @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
