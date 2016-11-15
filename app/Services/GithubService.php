@@ -30,7 +30,7 @@ class GithubService
 
 
     /**
-     *
+     * @return static
      */
     public function obtainRepos()
     {
@@ -53,11 +53,17 @@ class GithubService
 //        ];
     }
 
+    /**
+     * @return string
+     */
     private function githubReposUrl()
     {
         return $this->github_api_url . $this->uri;
     }
 
+    /**
+     * @return array
+     */
     private function credentials()
     {
         return [
