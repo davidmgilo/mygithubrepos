@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mygithubrepos', function () {
-    return view('mygithubrepos');
-});
+Route::get('/mygithubrepos','MyGithubReposController@index');
