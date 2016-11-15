@@ -15,15 +15,18 @@ class MyGithubReposController extends Controller
      */
     public function index()
     {
-        $githubrepos = [];
+        $githubrepos = [
+            'Repo1',
+            'Repo2',
+            'Repo3',
+
+        ];
 
         //compact(..) igual a :
 //        $data = [
 //          'githubrepos' => $githubrepos
 //        ];
 
-        return view('mygithubrepos',[
-            'githubrepos' => $githubrepos
-        ] );
+        return view('mygithubrepos',compact('githubrepos'));
     }
 }
