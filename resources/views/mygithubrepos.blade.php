@@ -13,7 +13,7 @@
                     <div class="panel-heading">My Repos</div>
 
                     <div class="panel-body">
-                        TODO: here llista de repos
+                        {{ var_dump($githubrepos) }}
                     </div>
                 </div>
             </div>
