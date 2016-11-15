@@ -30,7 +30,7 @@ class GithubService
 
 
     /**
-     * @return static
+     * @return \Illuminate\Support\Collection
      */
     public function obtainRepos()
     {
